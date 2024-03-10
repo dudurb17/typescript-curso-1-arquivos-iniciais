@@ -28,7 +28,8 @@ export class NegociacoesView extends View<Negociacoes>{
                     </tr>`
                 }).join("")}
             </tbody>
-        </table>`
+        </table>
+        `
     }
 
     private formatar(data:Date):string{

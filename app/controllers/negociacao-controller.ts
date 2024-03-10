@@ -9,7 +9,7 @@ export class NegociacaoController{
     private inputQuantidade:HTMLInputElement;
     private inputValor:HTMLInputElement;
     private negociacoes=new Negociacoes();
-    private negociacoesView =new NegociacoesView('#negociaçoesView')
+    private negociacoesView =new NegociacoesView('#negociaçoesView', true)
     private mensagemView=new MensagemView('#mensagemView');
    
     constructor(){
@@ -32,10 +32,8 @@ export class NegociacaoController{
         this.negociacoes.adiciona(negociacao)
         this.limparFormulario()
         this.atualizaView()
-       
-
-
     }
+
     private ehDiaUtil(data:Date){
         return data.getDay()>DiasDaSemana.DOMINGO && data.getDay()<DiasDaSemana.SABADO
     }

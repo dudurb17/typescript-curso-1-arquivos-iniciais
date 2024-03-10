@@ -25,7 +25,8 @@ export class NegociacoesView extends View {
                     </tr>`;
         }).join("")}
             </tbody>
-        </table>`;
+        </table>
+        `;
     }
     formatar(data) {
         return new Intl.DateTimeFormat().format(data);
