@@ -11,7 +11,5 @@ export abstract class View<T>{
     }
 
     
-    template(model:T):string{
-        throw Error("classe filha precisa implementar o metodo template")
-    }
+    abstract template(model:T):string
 }
