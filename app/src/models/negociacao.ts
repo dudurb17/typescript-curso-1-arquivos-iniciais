@@ -1,6 +1,7 @@
+import { Comparavel } from "../interface/comparavel.js";
 import { Imprimivel } from "../utils/imprimivel.js";
 
-export class Negociacao implements Imprimivel {
+export class Negociacao implements Imprimivel, Comparavel<Negociacao> {
     constructor(
         private _data: Date, 
         public readonly quantidade: number, 
@@ -24,7 +25,7 @@ export class Negociacao implements Imprimivel {
         const data = new Date(this._data.getTime());
         return data;
     }
-    
+
     public paraTexto(): string{
         return`
         Data: ${this.data},
