@@ -24,6 +24,7 @@ export class Negociacao implements Imprimivel {
         const data = new Date(this._data.getTime());
         return data;
     }
+    
     public paraTexto(): string{
         return`
         Data: ${this.data},
@@ -31,6 +32,12 @@ export class Negociacao implements Imprimivel {
         Valor: ${this.valor}
         `
 
+    }
+
+    public ehIgual(negociacao:Negociacao):boolean{
+        return this.data.getDate()===negociacao.data.getDate()
+        && this.data.getMonth()===negociacao.data.getMonth()
+        && this.data.getFullYear()===negociacao.data.getFullYear()
     }
 
    

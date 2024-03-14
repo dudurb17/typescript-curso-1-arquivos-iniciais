@@ -30,12 +30,20 @@ export class NegociacaoController {
             return;
         }
         this.negociacoes.adiciona(negociacao);
-        imprimir(negociacao);
+        imprimir(negociacao, this.negociacoes);
         this.limparFormulario();
         this.atualizaView();
     }
     importarDados() {
-        this.negociacoesService.obterNegociacoesDoDia()
+        this.negociacoesService
+            .obterNegociacoesDoDia()
+            .then(negociacaoDeHoje => {
+            return negociacaoDeHoje.filter(negociacaoDeHoje => {
+                return !this.negociacoes
+                    .lista()
+                    .some(negociacao => negociacao.ehIgual(negociacaoDeHoje));
+            });
+        })
             .then((negociacaoDeHoje) => {
             for (let negociacao of negociacaoDeHoje) {
                 this.negociacoes.adiciona(negociacao);
